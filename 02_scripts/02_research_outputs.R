@@ -36,7 +36,7 @@ stroke_tripod_screen <- stroke_tripod[!(stroke_tripod$title %in% stroke_remove_t
 
 # form the list into a random order with the date the data was collected
 # date collected was 15/08/2025 and seed is 15082025
-TeachingDemos::char2seed(15082025)
+set.seed(15082025)
 stroke_tripod_screen = mutate(stroke_tripod_screen, random = runif(n=n())) %>%
   arrange(desc(random)) %>% 
   select(!random)
@@ -63,7 +63,7 @@ diabetes_remove_title <- diabetes_tripod %>%
 
 # no duplicates in the diabetes outputs
 # convert the list randomly for screening
-TeachingDemos::char2seed(15082025)
+set.seed(15082025)
 diabetes_tripod = mutate(diabetes_tripod, random = runif(n=n())) %>%
   arrange(desc(random)) %>% 
   select(!random)

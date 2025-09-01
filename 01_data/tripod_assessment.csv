@@ -1,3 +1,3 @@
-type,title,doi,5a,5b,6a,7,8a,9a,10,11
-data,stroke prediction dataset,na,no,no,no,no,no,no,no,no
-data,diabetes prediction dataset,na,no,no,no,yes,no,no,no,no
+type,title,doi,5a,5b,6a,7,8a,9a,9b,10,11,practical use,other comments
+data,stroke prediction dataset,na,no,no,no,no,no,no,no,no,no,"(Confidential Source) - Use only for educational purposes If you use this dataset in your research, plrease credit the author.",
+data,diabetes prediction dataset,na,no,no,no,yes,no,no,no,no,no,The dataset can also be used for research purposes to identify potential risk factors for diabetes and to develop effective prevention and treatment strategies.,

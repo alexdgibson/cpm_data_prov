@@ -27,17 +27,11 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 
 
-**01\_kaggle** contains two datasets both which are downloaded from the Kaggle website
-
-**02\_second\_screen** contains the random sample of articles which were screened by a second screener
-
-**03\_html** contains all of the google scholar HTML files from both search filters
-
-
+**01\_kaggle** contains two datasets both which are downloaded from the Kaggle website.
+**02\_second\_screen** contains the random sample of articles which were screened by a second screener.
+**03\_html** contains all of the google scholar HTML files from both search filters.
 
 There are 10 csv files in **01\_data**
-
-
 
 1. **articles\_overton** 
 2. **diabetes\_assessed** 
@@ -51,26 +45,15 @@ There are 10 csv files in **01\_data**
 10. **tripod\_assessment** 
 
 
+## 02_scripts explained
 
-**02\_scripts explained**
-
-
-
-**01\_examine\_kaggle\_data.R**
-
-**02\_research\_outputs.R**
-
-**03\_tripod\_assessments.R**
-
-**04\_second\_screen.R**
-
-**05\_summary\_statistics.R**
-
-**06\_overton\_assessment.R**
-
-**07\_figures.R**
-
-**08\_pubpeer\_retraction\_watch.R**
-
-**09\_flowchart.R**
+- **01_examine_kaggle_data.R**
+- **02_research_outputs.R**
+- **03_tripod_assessments.R**
+- **04_second_screen.R**
+- **05_summary_statistics.R**
+- **06_overton_assessment.R**
+- **07_figures.R**
+- **08_pubpeer_retraction_watch.R**
+- **09_flowchart.R**
 

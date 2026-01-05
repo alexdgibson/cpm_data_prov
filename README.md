@@ -3,19 +3,19 @@ cpm\_data\_prov
 This is a README.md file for the cpm_data_prov project as part of research project examining data provenance in published clinical prediction models.
 
 File structure of the R and GitHub project:
-# 01_data 
+## 01_data 
 
 This folder contains all of the data files and sub folders of data.
 
 
 
-# 02_scripts
+## 02_scripts
 
 This folder contains all of the R scripts that were used in this research project
 
 
 
-# 03_figures
+## 03_figures
 
 This folder contains all of the figures produced from the R scripts in 02\_scripts
 
@@ -23,7 +23,7 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 
 
-**01\_data explained**
+## 01_data explained
 
 
 
@@ -39,25 +39,16 @@ There are 10 csv files in **01\_data**
 
 
 
-**articles\_overton** 
-
-**diabetes\_assessed** 
-
-**diabetes\_rescreen** 
-
-**diabetes\_tripod\_screen** 
-
-**kaggle\_research\_outputs** 
-
-**practical\_assessment** 
-
-**stroke\_assessed** 
-
-**stroke\_rescreen** 
-
-**stroke\_tripod\_screen** 
-
-**tripod\_assessment** 
+1. **articles\_overton** 
+2. **diabetes\_assessed** 
+3. **diabetes\_rescreen** 
+4. **diabetes\_tripod\_screen** 
+5. **kaggle\_research\_outputs** 
+6. **practical\_assessment** 
+7. **stroke\_assessed** 
+8. **stroke\_rescreen** 
+9. **stroke\_tripod\_screen** 
+10. **tripod\_assessment** 
 
 
 

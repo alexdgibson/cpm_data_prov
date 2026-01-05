@@ -33,16 +33,16 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 There are 10 csv files in **01\_data**
 
-1. **articles\_overton** 
-2. **diabetes\_assessed** 
-3. **diabetes\_rescreen** 
-4. **diabetes\_tripod\_screen** 
-5. **kaggle\_research\_outputs** 
-6. **practical\_assessment** 
-7. **stroke\_assessed** 
-8. **stroke\_rescreen** 
-9. **stroke\_tripod\_screen** 
-10. **tripod\_assessment** 
+- **articles\_overton** 
+- **diabetes\_assessed** 
+- **diabetes\_rescreen** 
+- **diabetes\_tripod\_screen** 
+- **kaggle\_research\_outputs** 
+- **practical\_assessment** 
+- **stroke\_assessed** 
+- **stroke\_rescreen** 
+- **stroke\_tripod\_screen** 
+- **tripod\_assessment** 
 
 
 ## 02_scripts explained

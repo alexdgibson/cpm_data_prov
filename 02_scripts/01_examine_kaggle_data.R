@@ -433,3 +433,20 @@ stroke_df %>%
   geom_point(aes(x = id, y= difference))+
   theme_classic()
 
+
+
+
+
+# check for duplicate rows in both datasets
+
+diabetes_duplicated <- diabetes_df %>% 
+  group_by_all() %>% 
+  filter(n() > 1) %>% 
+  ungroup()
+
+
+stroke_duplicated <- stroke_df %>% 
+  select(!id) %>% 
+  group_by_all() %>% 
+  filter(n() > 1) %>% 
+  ungroup()

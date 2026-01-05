@@ -73,7 +73,7 @@ write.csv(diabetes_tripod, file = "01_data/diabetes_tripod_screen.csv")
 
 
 # gather summary data stroke and diabetes data
-
+# Number of stroke research outputs found
 ro %>% 
   filter(search == "stroke") %>% 
   nrow()
@@ -105,7 +105,7 @@ ro %>%
          uses_data == "yes",
          pdf == "yes",
          english == "yes",
-         type == "book") %>%
+         type == "article") %>%
   nrow()
 
 
@@ -142,5 +142,6 @@ ro %>%
          uses_data == "yes",
          pdf == "yes",
          english == "yes",
-         type == "na") %>%
+         type == "article") %>%
   nrow()
+

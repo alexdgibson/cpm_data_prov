@@ -26,63 +26,63 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 
 
-	**01\_data explained**
+**01\_data explained**
 
 
 
-		**01\_kaggle** contains two datasets both which are downloaded from the Kaggle website
+**01\_kaggle** contains two datasets both which are downloaded from the Kaggle website
 
-		**02\_second\_screen** contains the random sample of articles which were screened by a second screener
+**02\_second\_screen** contains the random sample of articles which were screened by a second screener
 
-		**03\_html** contains all of the google scholar HTML files from both search filters
-
-
-
-&nbsp;	There are 10 csv files in **01\_data**
+**03\_html** contains all of the google scholar HTML files from both search filters
 
 
 
-		**articles\_overton** 
-
-		**diabetes\_assessed** 
-
-		**diabetes\_rescreen** 
-
-		**diabetes\_tripod\_screen** 
-
-		**kaggle\_research\_outputs** 
-
-		**practical\_assessment** 
-
-		**stroke\_assessed** 
-
-		**stroke\_rescreen** 
-
-		**stroke\_tripod\_screen** 
-
-		**tripod\_assessment** 
+There are 10 csv files in **01\_data**
 
 
 
-	**02\_scripts explained**
+**articles\_overton** 
+
+**diabetes\_assessed** 
+
+**diabetes\_rescreen** 
+
+**diabetes\_tripod\_screen** 
+
+**kaggle\_research\_outputs** 
+
+**practical\_assessment** 
+
+**stroke\_assessed** 
+
+**stroke\_rescreen** 
+
+**stroke\_tripod\_screen** 
+
+**tripod\_assessment** 
 
 
 
-		**01\_examine\_kaggle\_data.R**
+**02\_scripts explained**
 
-		**02\_research\_outputs.R**
 
-		**03\_tripod\_assessments.R**
 
-		**04\_second\_screen.R**
+**01\_examine\_kaggle\_data.R**
 
-		**05\_summary\_statistics.R**
+**02\_research\_outputs.R**
 
-		**06\_overton\_assessment.R**
+**03\_tripod\_assessments.R**
 
-		**07\_figures.R**
+**04\_second\_screen.R**
 
-		**08\_pubpeer\_retraction\_watch.R**
+**05\_summary\_statistics.R**
 
-		**09\_flowchart.R**
+**06\_overton\_assessment.R**
+
+**07\_figures.R**
+
+**08\_pubpeer\_retraction\_watch.R**
+
+**09\_flowchart.R**
 

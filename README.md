@@ -1,24 +1,21 @@
-cpm\_data\_prov README.md
+cpm\_data\_prov 
 
-
+This is a README.md file for the cpm_data_prov project as part of research project examining data provenance in published clinical prediction models.
 
 File structure of the R and GitHub project:
-
-
-
-**01\_data**
+# 01_data 
 
 This folder contains all of the data files and sub folders of data.
 
 
 
-**02\_scripts**
+# 02_scripts
 
 This folder contains all of the R scripts that were used in this research project
 
 
 
-**03\_figures**
+# 03_figures
 
 This folder contains all of the figures produced from the R scripts in 02\_scripts
 

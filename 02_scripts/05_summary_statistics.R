@@ -29,7 +29,7 @@ stroke_practical <- stroke_assessed %>%
 practical_use_assessment <- rbind(stroke_practical, diabetes_practical)
 
 # write to csv for assessing the practical uses
-write.csv(practical_use_assessment, file = "01_data/practical_assessment.csv")
+#write.csv(practical_use_assessment, file = "01_data/practical_assessment.csv")
 
 
 
@@ -52,20 +52,11 @@ diabetes_assessed %>%
 
 
 
-
-
-
-
-
-
-
-
-
 # countries of the first author for stroke
 stroke_assessed %>% 
   group_by(first_auth_country) %>% 
   summarise(total = n()) %>% 
-  arrange(-total) %>% view()
+  arrange(-total)
 
 
 # examining ethics for stroke
@@ -80,14 +71,17 @@ stroke_assessed %>%
 
 
 
-
-
-
-
-
-
 # total country for both stroke and diabetes
 rbind(stroke_assessed, diabetes_assessed) %>% 
   group_by(first_auth_country) %>% 
   summarise(total = n()) %>% 
   arrange(-total) %>% view()
+
+
+
+# check which articles scored higher on the TRIPOD statement
+rbind(stroke_assessed, diabetes_assessed) %>% 
+  filter()
+
+
+

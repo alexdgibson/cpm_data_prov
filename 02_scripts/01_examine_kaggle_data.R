@@ -4,12 +4,15 @@
 
 # load in libraries
 library(tidyverse)
+library(ggplot2)
+library(cowplot)
+library(svglite)
 
 
 # load in each of the two kaggle data sets for exploratory analysis
 
-stroke_df <- read.csv("01_data/02_kaggle/healthcare-dataset-stroke-data.csv")
-diabetes_df <- read.csv("01_data/02_kaggle/diabetes_prediction_dataset.csv")
+stroke_df <- read.csv("01_data/01_kaggle/healthcare-dataset-stroke-data.csv")
+diabetes_df <- read.csv("01_data/01_kaggle/diabetes_prediction_dataset.csv")
 
 
 # check the structure of each data set
@@ -131,6 +134,7 @@ stroke_df %>%
   geom_point(aes(x = id, y = age))+
   theme_classic()
 
+
 # id and glucose
 stroke_df %>% 
   ggplot()+
@@ -139,11 +143,30 @@ stroke_df %>%
 
 # id and glucose
 # with vline at half the id variable
+
 stroke_df %>% 
   ggplot()+
+  #geom_vline(xintercept = max(stroke_df$id)/2, linewidth = 0.2, linetype = "dashed")+
   geom_point(aes(x = id, y = avg_glucose_level))+
-  geom_vline(xintercept = max(stroke_df$id)/2)+
-  theme_classic()
+  theme_classic()+
+  scale_x_continuous(n.breaks = 8)+
+  scale_y_continuous(limits = c(50,300), n.breaks = 6)+
+
+  labs(x = "Patient Identifier",
+       y = "Blood Glucose Level")
+
+# save as jpg
+ggsave(filename = "03_figures/stroke_id_glucose.jpg",
+       width = 10,
+       height = 6,
+       dpi = 300)
+
+# save as svg
+ggsave(filename = "C:/Users/alexd/OneDrive - Queensland University of Technology/02_phd/06_prediction_data/06_aimos/02_present_figures/stroke_id_glucose.svg",
+       height = 17.4,
+       width = 23,
+       dpi = 300,
+       units = c("cm"))
 
 # id and bmi
 stroke_df %>% 
@@ -202,7 +225,7 @@ stroke_df[!complete.cases(stroke_df), ] %>%
   arrange(id) %>% 
   filter(id > max(stroke_df$id/2)) %>% nrow()
 
-# plot the distributions of variables with missing data
+  # plot the distributions of variables with missing data
 stroke_df[!complete.cases(stroke_df), ] %>% 
   ggplot(aes(x = id))+
   geom_histogram()+
@@ -246,10 +269,21 @@ stroke_df[!complete.cases(stroke_df), ] %>%
 # plot the distributions for the continuous variables for diabetes
 
 # plotting the distribution of the numeric variable age for diabetes
-diabetes_df %>% 
+diabetes_age_hist <- diabetes_df %>% 
   ggplot(aes(x = age))+
-  geom_histogram(binwidth = 1)+
-  theme_classic()
+  geom_histogram(binwidth = 1, fill = "#163E64", colour = "#163E64")+
+  scale_x_continuous(n.breaks = 10)+
+  scale_y_continuous(limits = c(0,6000), n.breaks = 6)+
+  theme_classic()+
+  labs(x = "Age",
+       y = "Count")
+
+# save as svg
+ggsave(filename = "C:/Users/alexd/OneDrive - Queensland University of Technology/02_phd/06_prediction_data/06_aimos/02_present_figures/diabetes_age_histo.svg",
+       height = 17.4,
+       width = 23,
+       dpi = 300,
+       units = c("cm"))
 
 # examine the peak at 80 years old
 # roughly 1/20 of the data set greater than 80 years old
@@ -263,10 +297,31 @@ diabetes_df %>%
   theme_classic()
 
 # plotting the distribution of the numeric variable bmi for diabetes
-diabetes_df %>% 
+diabetes_bmi_hist <- diabetes_df %>% 
+  filter(bmi < 60) %>% 
   ggplot(aes(x = bmi))+
-  geom_histogram(binwidth = 1)+
-  theme_classic()
+  geom_histogram(binwidth = 1, fill = "#163E64", colour = "#163E64")+
+  scale_x_continuous(n.breaks = 10)+
+  scale_y_continuous(limits = c(0,35000), n.breaks = 8)+
+  theme_classic()+
+  labs(x = "BMI",
+       y = "Count")
+
+# save as svg
+ggsave(filename = "C:/Users/alexd/OneDrive - Queensland University of Technology/02_phd/06_prediction_data/06_aimos/02_present_figures/diabetes_bmi_histo.svg",
+       height = 17.4,
+       width = 23,
+       dpi = 300,
+       units = c("cm"))
+
+
+# add age and bmi histograms together to save as a plot
+plot_grid(diabetes_age_hist, diabetes_bmi_hist, labels = c("A", "B"))
+
+ggsave(filename = "03_figures/diabetes_age_bmi_hist.jpg",
+       width = 6,
+       height = 3,
+       dpi = 300)
 
 # examine the peak of bmi at 27
 # 1/3 of the dataset has a bmi between 26 and 28
@@ -276,23 +331,23 @@ diabetes_df %>%
 # plotting the distribution of the numeric variable hba1c for diabetes
 diabetes_df %>% 
   ggplot(aes(x = HbA1c_level))+
-  geom_histogram(binwidth = 1)+
+  geom_histogram(binwidth = 0.01)+
   theme_classic()
 
 # plot a point graph of each continuous variable with each other for diabetes
-# ID and age
+# bgl and age
 diabetes_df %>% 
   ggplot()+
   geom_point(aes(x = age, y = blood_glucose_level))+
   theme_classic()
 
-# id and glucose
+# age and bmi
 diabetes_df %>% 
   ggplot()+
   geom_point(aes(x = age, y = bmi))+
   theme_classic()
 
-# id and glucose when age is less than 2
+# age and bmi when age is less than 2
 # constant BMI ~27 from 0 to 2
 diabetes_df %>% 
   filter(age < 2) %>% 
@@ -307,19 +362,52 @@ diabetes_df %>%
   theme_classic()
 
 # glucose and bmi
-diabetes_df %>% 
+diabetes_bgl_bmi <- diabetes_df %>% 
   ggplot()+
-  geom_point(aes(x = blood_glucose_level, y = bmi))+
-  theme_classic()
+  geom_point(aes(x = blood_glucose_level, y = bmi), alpha = 0.015)+
+  theme_classic()+
+  labs(x = "Blood Glucose Level",
+       y = "BMI")
+
+# hba1c and bmi
+diabetes_hba1c_bmi <- diabetes_df %>% 
+  ggplot()+
+  geom_point(aes(x = HbA1c_level, y = bmi), alpha = 0.015)+
+  theme_classic()+
+  labs(x = "HbA1c Level",
+       y = "BMI")
+
+plot_grid(diabetes_bgl_bmi, diabetes_hba1c_bmi, labels = c("A", "B"))
+
+ggsave(filename = "03_figures/diabetes_bmi_plots.jpg",
+       width = 12,
+       height = 6,
+       dpi = 300)
+
 
 # avg blood glucose and hba1c
 diabetes_df %>% 
   ggplot()+
-  geom_point(aes(x = blood_glucose_level, y = HbA1c_level))+
-  theme_classic()
+  geom_point(aes(x = blood_glucose_level, y = HbA1c_level), size = 0.3)+
+  theme_classic()+
+  labs(y = "HbA1c Level",
+       x = "Blood Glucose Level")+
+  scale_x_continuous(limits = c(75,300), n.breaks = 8)+
+  scale_y_continuous(limits = c(3,10))+
+  theme(text = element_text(size = 7))
+  
+  ggsave(filename = "03_figures/diabetes_glucose_hba1c.jpg",
+         width = 4,
+         height = 3,
+         dpi = 300)
+  
+
+# unique number of blood glucose level data
+unique(diabetes_df$blood_glucose_level)
 
 
-
+# unique number of hba1c level data
+unique(diabetes_df$HbA1c_level)
 
 # examine missing data in the diabetes data set
 diabetes_df[!complete.cases(diabetes_df), ]

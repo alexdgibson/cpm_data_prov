@@ -12,7 +12,7 @@ Primary packages used in the R project:
 
 [tidyverse (2.0.0), openalexR (2.0.2)]
 
-##File structure of the R and GitHub project:
+## File structure of the R and GitHub project:
 ### 01_data 
 
 This folder contains all of the data files and sub folders of data.
@@ -28,9 +28,9 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 ### 01_data explained
 
-**01\_kaggle** contains two datasets both which are downloaded from the Kaggle website.
+**01\_kaggle** contains two datasets that are both downloaded from the Kaggle website and used for this study.
 **02\_second\_screen** contains the random sample of articles which were screened by a second screener.
-**03\_html** contains all of the google scholar HTML files from both search filters.
+**03\_html** contains all of the Google Scholar HTML files from both searches finding research articles.
 
 There are 10 csv files in **01\_data**
 

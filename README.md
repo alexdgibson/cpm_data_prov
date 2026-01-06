@@ -50,10 +50,9 @@ There are 10 csv files in **01\_data**
 
 - **01_examine_kaggle_data.R** This R file imports both Kaggle datasets for exploratory analyses of the data to determine if the data is authentic or simulated.
 - **02_research_outputs.R** This R file imports the research outputs saved from Google Scholar and randomly sorts them into a list to be screened for inclusion. Research included for screening are saved as **stroke_tripod_screen.csv** and **diabetes_tripod_screen.csv**
-- **03_tripod_assessments.R** 
+- **03_oa_assessments.R** This R file checks OpenAlex for citation counts and research interest over time for the included assessed articles.
 - **04_second_screen.R** This R file randomly sorts a new list of 10 articles to be screened by the second screener
-- **05_summary_statistics.R**
-- **06_overton_assessment.R**
-- **07_figures.R**
-- **08_pubpeer_retraction_watch.R**
-- **09_flowchart.R**
+- **05_summary_statistics.R** This R file gathers summary statistics from the TRIPOD+AI and screening assessments for included articles.
+- **06_overton_altmetric.R** This R file gathers the articles title and DOI to save for checking in Overton and Altmetric.
+- **07_figures.R** This R file produces some of the figures for the research project.
+- **08_flowchart.R** This R file produces the flowchart of for the screening of articles.

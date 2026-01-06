@@ -1,6 +1,6 @@
 # 01_examine_kaggle_data.R
 # created 18/08/2025
-# examine the two kaggle data sets to determine an outcome if they are real, fake, simulated or verifiable
+# examine the two kaggle data sets to determine the authenticity of the datasets
 
 # load in libraries
 library(tidyverse)
@@ -10,7 +10,6 @@ library(svglite)
 
 
 # load in each of the two kaggle data sets for exploratory analysis
-
 stroke_df <- read.csv("01_data/01_kaggle/healthcare-dataset-stroke-data.csv")
 diabetes_df <- read.csv("01_data/01_kaggle/diabetes_prediction_dataset.csv")
 
@@ -87,6 +86,7 @@ stroke_df %>%
   geom_bar()+
   theme_classic()
 
+# gather the row counts for females, males and other
 stroke_df %>% filter(gender == "Female") %>% nrow()
 stroke_df %>% filter(gender == "Male") %>% nrow()
 stroke_df %>% filter(gender == "Other") %>% nrow()
@@ -225,17 +225,19 @@ stroke_df[!complete.cases(stroke_df), ] %>%
   arrange(id) %>% 
   filter(id > max(stroke_df$id/2)) %>% nrow()
 
-  # plot the distributions of variables with missing data
+# plot the distributions of id with missing data
 stroke_df[!complete.cases(stroke_df), ] %>% 
   ggplot(aes(x = id))+
   geom_histogram()+
   theme_classic()
 
+# plot the distribution of age with missing data
 stroke_df[!complete.cases(stroke_df), ] %>% 
   ggplot(aes(x = age))+
   geom_histogram(binwidth = 1)+
   theme_classic()
 
+# plot the distribution of average glucose with missing data
 stroke_df[!complete.cases(stroke_df), ] %>% 
   ggplot(aes(x = avg_glucose_level))+
   geom_histogram(binwidth = 1)+
@@ -243,7 +245,6 @@ stroke_df[!complete.cases(stroke_df), ] %>%
 
 
 # plot a point plot of the observations with missing data
-
 stroke_df[!complete.cases(stroke_df), ] %>% 
   ggplot()+
   geom_point(aes(x = id, y = age))+
@@ -413,8 +414,6 @@ unique(diabetes_df$HbA1c_level)
 diabetes_df[!complete.cases(diabetes_df), ]
 
 
-
-
 # looking at the numerical difference between the id and subsequent ID
 stroke_df %>% 
   select(id) %>% 
@@ -424,7 +423,7 @@ stroke_df %>%
   geom_histogram(aes(x = difference), binwidth = 1)+
   theme_classic()
 
-
+# plot the different by ID
 stroke_df %>% 
   select(id) %>% 
   arrange(id) %>% 
@@ -434,17 +433,14 @@ stroke_df %>%
   theme_classic()
 
 
-
-
-
 # check for duplicate rows in both datasets
-
+# duplicate data in the diabetes dataset
 diabetes_duplicated <- diabetes_df %>% 
   group_by_all() %>% 
   filter(n() > 1) %>% 
   ungroup()
 
-
+# duplicate data in the stroke dataset
 stroke_duplicated <- stroke_df %>% 
   select(!id) %>% 
   group_by_all() %>% 

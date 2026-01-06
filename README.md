@@ -26,7 +26,7 @@ This folder contains all of the R scripts that were used in this research projec
 This folder contains all of the figures produced from the R scripts in 02\_scripts
 
 
-### 01_data explained
+## 01_data explained
 
 **01\_kaggle** contains two datasets that are both downloaded from the Kaggle website and used for this study.
 **02\_second\_screen** contains the random sample of articles which were screened by a second screener.
@@ -34,24 +34,24 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 There are 10 csv files in **01\_data**
 
-- **articles_overton.csv** 
-- **diabetes_assessed.csv** 
-- **diabetes_rescreen.csv** 
-- **diabetes_tripod_screen.csv** 
-- **kaggle_research_outputs.csv** 
-- **practical_assessment.csv** 
-- **stroke_assessed.csv** 
-- **stroke_rescreen.csv** 
-- **stroke_tripod_screen.csv** 
-- **tripod_assessment.csv** 
+- **articles_overton.csv** List of the stroke and diabetes articles to be searched in Overton and Altmetric.
+- **diabetes_assessed.csv** This is a copy of the diabetes_tripod_screen.csv file which has added TRIPOD+AI screening. Assessment was completed by entering results into excel.
+- **diabetes_rescreen.csv** This is the rescreening of TRIPOD+AI item 7 for diabetes articles.
+- **diabetes_tripod_screen.csv** This is the set of diabetes articles there were identified for screening.
+- **kaggle_research_outputs.csv** This is all of the research outputs identified by Google Scholar and screening for inclusion or not.
+- **practical_assessment.csv** This is an export of all the articles and the practical assessments.
+- **stroke_assessed.csv** This is a copy of the stroke_tripod_screen.csv file which has added TRIPOD+AI screening. Assessment was completed by entering results into excel.
+- **stroke_rescreen.csv** This is the rescreening of TRIPOD+AI item 7 for stroke articles.
+- **stroke_tripod_screen.csv** This is the set of stroke articles there were identified for screening.
+- **tripod_assessment.csv** This is the TRIPOD+AI assessment of all articles included after screening.
 
 
-### 02_scripts explained
+## 02_scripts explained
 
-- **01_examine_kaggle_data.R**
-- **02_research_outputs.R**
-- **03_tripod_assessments.R**
-- **04_second_screen.R**
+- **01_examine_kaggle_data.R** This R file imports both Kaggle datasets for exploratory analyses of the data to determine if the data is authentic or simulated.
+- **02_research_outputs.R** This R file imports the research outputs saved from Google Scholar and randomly sorts them into a list to be screened for inclusion. Research included for screening are saved as **stroke_tripod_screen.csv** and **diabetes_tripod_screen.csv**
+- **03_tripod_assessments.R** 
+- **04_second_screen.R** This R file randomly sorts a new list of 10 articles to be screened by the second screener
 - **05_summary_statistics.R**
 - **06_overton_assessment.R**
 - **07_figures.R**

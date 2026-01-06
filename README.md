@@ -12,21 +12,21 @@ Primary packages used in the R project:
 
 [tidyverse (2.0.0), openalexR (2.0.2)]
 
-File structure of the R and GitHub project:
-## 01_data 
+##File structure of the R and GitHub project:
+### 01_data 
 
 This folder contains all of the data files and sub folders of data.
 
-## 02_scripts
+### 02_scripts
 
 This folder contains all of the R scripts that were used in this research project
 
-## 03_figures
+### 03_figures
 
 This folder contains all of the figures produced from the R scripts in 02\_scripts
 
 
-## 01_data explained
+### 01_data explained
 
 **01\_kaggle** contains two datasets both which are downloaded from the Kaggle website.
 **02\_second\_screen** contains the random sample of articles which were screened by a second screener.
@@ -46,7 +46,7 @@ There are 10 csv files in **01\_data**
 - **tripod_assessment.csv** 
 
 
-## 02_scripts explained
+### 02_scripts explained
 
 - **01_examine_kaggle_data.R**
 - **02_research_outputs.R**

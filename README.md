@@ -29,21 +29,33 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 ## 01_data explained
 
 **01\_kaggle** contains two datasets that are both downloaded from the Kaggle website and used for this study.
+
 **02\_second\_screen** contains the random sample of articles which were screened by a second screener.
+
 **03\_html** contains all of the Google Scholar HTML files from both searches finding research articles.
 
 There are 10 csv files in **01\_data**
 
 - **articles_overton.csv** List of the stroke and diabetes articles to be searched in Overton and Altmetric.
+
 - **diabetes_assessed.csv** This is a copy of the diabetes_tripod_screen.csv file which has added TRIPOD+AI screening. Assessment was completed by entering results into excel.
+
 - **diabetes_rescreen.csv** This is the rescreening of TRIPOD+AI item 7 for diabetes articles.
+
 - **diabetes_tripod_screen.csv** This is the set of diabetes articles there were identified for screening.
+
 - **kaggle_research_outputs.csv** This is all of the research outputs identified by Google Scholar and screening for inclusion or not.
+
 - **practical_assessment.csv** This is an export of all the articles and the practical assessments.
+
 - **stroke_assessed.csv** This is a copy of the stroke_tripod_screen.csv file which has added TRIPOD+AI screening. Assessment was completed by entering results into excel.
+
 - **stroke_rescreen.csv** This is the rescreening of TRIPOD+AI item 7 for stroke articles.
+
 - **stroke_tripod_screen.csv** This is the set of stroke articles there were identified for screening.
+
 - **tripod_assessment.csv** This is the TRIPOD+AI assessment of all articles included after screening.
+
 
 
 ## 02_scripts explained

@@ -20,12 +20,11 @@ stroke_tripod <- tripod_df %>% filter(type == "stroke")
 
 
 # remove the outputs that did not meet the criteria for a tripod assessment
-# diabetes
 diabetes_assessed <- diabetes_tripod %>% 
   filter(cpm_type != "na")
 
 # save this as a csv file for later use
-#write.csv(diabetes_assessed, file = "01_data/diabetes_assessed.csv")
+write.csv(diabetes_assessed, file = "01_data/diabetes_assessed.csv")
 
 # create a list of the DOIS for the diabetes research articles to be searched in OA
 oa_diabetes_doi <- as.list(diabetes_assessed$doi)
@@ -36,8 +35,41 @@ oa_diabetes <- oa_fetch(
   entity = "works",
   doi = oa_diabetes_doi,
   verbose = TRUE,
-  per_page = 200 # more than enough
+  per_page = 200, # more than enough
+  abstract = FALSE
 )
+
+
+test <- oa_query(entiy = "works",
+         cites = "W4396754438")
+
+
+oa_request(query_url = test,
+           count_only = FALSE,
+           verbose = TRUE)
+
+
+
+
+
+query <- oa_query( entity = "works", cites = "W4396754438")
+
+
+res <- oa_request( query_url = query, count_only = FALSE, verbose = TRUE)
+
+
+df <- oa2df(res, entity = "works") 
+
+
+
+
+
+
+
+
+
+
+
 
 # check if review articles have cited any of these articles
 diabetes_cited_web <- oa_diabetes %>% filter(cited_by_count > 0) %>% 

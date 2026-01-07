@@ -1,5 +1,4 @@
 # 04_second_screen.R
-# check screening with gwets statistic
 
 # produce 10 random article for second screener to reivew
 # seed will be the inverse order of the first seed
@@ -26,9 +25,6 @@ write.csv(second_screen, file = "01_data/02_second_screen/tripod_second_screen.c
 
 # load in the second screen
 second_complete <- read.csv("01_data/02_second_screen/tripod_assessment_second.csv")
-
-
-
 
 
 

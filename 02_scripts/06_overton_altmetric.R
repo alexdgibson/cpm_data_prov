@@ -16,4 +16,4 @@ assessed_articles <- tripod_df %>%
   select(title, doi)
 
 # save the csv output for screening
-write.csv(assessed_articles, file = "01_data/articles_overton.csv")
+write.csv(assessed_articles, file = "01_data/articles_overton_altmertic.csv")

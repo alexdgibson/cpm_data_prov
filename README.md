@@ -54,6 +54,8 @@ There are 10 csv files in **01\_data**
 
 - **tripod_assessment.csv**: This is the TRIPOD+AI assessment of all articles included after screening.
 
+- **altmetric_results.csv**: The results from the search in Altmetric, there is no Overton as the search retrieved no results.
+
 
 
 ## 02_scripts explained

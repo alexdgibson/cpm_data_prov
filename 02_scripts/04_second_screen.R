@@ -27,8 +27,6 @@ write.csv(second_screen, file = "01_data/02_second_screen/tripod_second_screen.c
 second_complete <- read.csv("01_data/02_second_screen/tripod_assessment_second.csv")
 
 
-
-
 # load in the stroke and diabetes assessed articles
 stroke_assessed <- read.csv("01_data/stroke_assessed.csv")
 diabetes_assessed <- read.csv("01_data/diabetes_assessed.csv")
@@ -43,7 +41,7 @@ combined_tripod_assessed <- rbind(stroke_assessed, diabetes_assessed) %>% .[-46,
 combined_tripod_rescreen <- rbind(stroke_rescreen, diabetes_rescreen) %>% .[-46, ]%>% 
   select(rescreen_7)
 
-  
+# join together
 tripod_table <- cbind(combined_tripod_assessed, combined_tripod_rescreen) %>% select(!x7)
 
 tripod_table %>% filter(type == "stroke") %>% view()

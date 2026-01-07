@@ -8,7 +8,7 @@ library(tidyverse)
 diabetes_assessed <- read.csv("01_data/diabetes_assessed.csv")
 stroke_assessed <- read.csv("01_data/stroke_assessed.csv")
 
-
+# check number of rows in each
 nrow(diabetes_assessed)
 nrow(stroke_assessed)
 
@@ -25,7 +25,6 @@ stroke_practical <- stroke_assessed %>%
   select(type, title, doi, practical_use, other_comments) 
 
 # read the assessments to ensure they are practical
-
 practical_use_assessment <- rbind(stroke_practical, diabetes_practical)
 
 # write to csv for assessing the practical uses
@@ -76,12 +75,6 @@ rbind(stroke_assessed, diabetes_assessed) %>%
   group_by(first_auth_country) %>% 
   summarise(total = n()) %>% 
   arrange(-total) %>% view()
-
-
-
-# check which articles scored higher on the TRIPOD statement
-rbind(stroke_assessed, diabetes_assessed) %>% 
-  filter()
 
 
 

@@ -31,8 +31,9 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 **01\_kaggle** contains two datasets that are both downloaded from the Kaggle website and used for this study.
 **02\_second\_screen** contains the random sample of articles which were screened by a second screener.
 **03\_html** contains all of the Google Scholar HTML files from both searches finding research articles.
+**04\_screen_shots_redacted** contains multiple screenshots of the Kaggle dataset webpages and discussion forum with personal data redacted.
 
-There are 10 csv files in **01\_data**
+There are 11 csv files in **01\_data**
 
 - **articles_overton_altmetric.csv**: List of the stroke and diabetes articles to be searched in Overton and Altmetric.
 
@@ -54,13 +55,13 @@ There are 10 csv files in **01\_data**
 
 - **tripod_assessment.csv**: This is the TRIPOD+AI assessment of all articles included after screening.
 
-- **altmetric_results.csv**: The results from the search in Altmetric, there is no Overton as the search retrieved no results.
+- **altmetric_results.csv**: The results from the search in Altmetric, there is no csv file from overton as the search retrieved no results.
 
 
 
 ## 02_scripts explained
 
-- **01_examine_kaggle_data.R**: This R file imports both Kaggle datasets for exploratory analyses of the data to determine if the data is authentic or simulated.
+- **01_examine_kaggle_data.R**: This R file imports both Kaggle datasets for exploratory analyses of the data to determine if the data is authentic, simulated or fabricated.
 
 - **02_research_outputs.R**: This R file imports the research outputs saved from Google Scholar and randomly sorts them into a list to be screened for inclusion. Research included for screening are saved as **stroke_tripod_screen.csv** and **diabetes_tripod_screen.csv**
 

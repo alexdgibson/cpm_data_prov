@@ -1,6 +1,6 @@
 # 03_tripod_assessments.R
 # created 08/09/2025
-# examine and summarise the results from the TRIPOD assessments
+# examine and summarise citations and research interest over time
 
 # load libraries
 library(tidyverse)
@@ -25,8 +25,6 @@ diabetes_assessed <- diabetes_tripod %>%
 
 # save this as a csv file for later use
 #write.csv(diabetes_assessed, file = "01_data/diabetes_assessed.csv")
-
-
 
 # create a list of the DOIS for the stroke research articles to be searched in OA
 oa_diabetes_doi <- as.list(diabetes_assessed$doi)
@@ -57,13 +55,17 @@ diabetes_cited_info <- map_dfr(diabetes_ids,
                                            abstract = FALSE))
 
 # group the article types together and check "review" for the project
-diabetes_cited_info %>% 
+diabetes_review <- diabetes_cited_info %>% 
   group_by(type) %>% 
   summarise(n = n()) %>% 
   filter(type == "review")
 
 
-
+# get the number of articles which had citations
+nrow(oa_diabetes) # number of diabetes articles indexed in OA
+length(diabetes_ids) # number of diabetes articles which had more than 0 citations
+sum(oa_diabetes$cited_by_count) # number of total citations all of the diabetes articles have recieved
+diabetes_review # number of citations which were review articles
 
 
 
@@ -104,14 +106,18 @@ stroke_cited_info <- map_dfr(stroke_ids,
                                         abstract = FALSE))
 
 # group the article types together and check "review" for the project
-stroke_cited_info %>% 
+stroke_review <- stroke_cited_info %>% 
   group_by(type) %>% 
   summarise(n = n()) %>% 
   filter(type == "review")
 
 
 
-
+# get the number of articles which had citations
+nrow(oa_stroke) # number of stroke articles indexed in OA
+length(stroke_ids) # number of stroke articles which had more than 0 citations
+sum(oa_stroke$cited_by_count) # number of total citations all of the stroke articles have received
+stroke_review # number of citations which were review articles
 
 
 # plotting the research interest in stroke research over time
@@ -135,7 +141,10 @@ ggsave(filename = "03_figures/pubs_over_time.jpg",
        height = 4,
        dpi = 300)
 
-
+# get the total number of articles from both stroke and diabetes which had OA publication date available
+rbind(oa_stroke, oa_diabetes) %>% 
+  distinct() %>%
+  nrow()
 
 
 

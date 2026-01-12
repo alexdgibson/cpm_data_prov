@@ -1,6 +1,6 @@
 cpm\_data\_prov 
 
-This is a README.md file for the cpm_data_prov project as part of research project examining data provenance in published clinical prediction models.
+This is a README.md file as part of this research project examining data provenance in published clinical prediction models.
 
 ## Metadata
 
@@ -28,14 +28,14 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 ## 01_data explained
 
-**01\_kaggle** contains two datasets that are both downloaded from the Kaggle website and used for this study.
+**01\_kaggle** contains two datasets that are both downloaded from the [Kaggle](www.kaggle.com) website and used for this study.
 **02\_second\_screen** contains the random sample of articles which were screened by a second screener.
 **03\_html** contains all of the Google Scholar HTML files from both searches finding research articles.
 **04\_screen_shots_redacted** contains multiple screenshots of the Kaggle dataset webpages and discussion forum with personal data redacted.
 
 There are 11 csv files in **01\_data**
 
-- **articles_overton_altmetric.csv**: List of the stroke and diabetes articles to be searched in Overton and Altmetric.
+- **articles_overton_altmetric.csv**: List of the stroke and diabetes articles to be searched in [Overton](https://www.overton.io/) and [Altmetric](https://www.altmetric.com/.
 
 - **diabetes_assessed.csv**: This is a copy of the diabetes_tripod_screen.csv file which has added TRIPOD+AI screening. Assessment was completed by entering results into excel.
 

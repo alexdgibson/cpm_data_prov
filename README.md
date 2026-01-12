@@ -35,7 +35,7 @@ This folder contains all of the figures produced from the R scripts in 02\_scrip
 
 There are 11 csv files in **01\_data**
 
-- **articles_overton_altmetric.csv**: List of the stroke and diabetes articles to be searched in [Overton](https://www.overton.io/) and [Altmetric](https://www.altmetric.com/.
+- **articles_overton_altmetric.csv**: List of the stroke and diabetes articles to be searched in [Overton](https://www.overton.io/) and [Altmetric](https://www.altmetric.com/).
 
 - **diabetes_assessed.csv**: This is a copy of the diabetes_tripod_screen.csv file which has added TRIPOD+AI screening. Assessment was completed by entering results into excel.
 

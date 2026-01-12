@@ -20,9 +20,9 @@ grViz("digraph flowchart {
 
   node [shape = none, width=0, height=0, label='']
   p1 -> 2; p2 -> 3; p3 -> 4;
-  {rank=same; p1 -> m1}
-  {rank=same; p2 -> m2}
-  {rank=same; p3 -> m3}
+  {rank=same; p1 -> m1 [minlen = 10]}
+  {rank=same; p2 -> m2 [minlen = 10]}
+  {rank=same; p3 -> m3 [minlen = 10]}
 
   edge [dir=none]
   1 -> p1; 2 -> p2; 3 -> p3;

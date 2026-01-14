@@ -169,7 +169,7 @@ all_oa %>%
   ggplot(aes(area = n,
              label = label_wrapped,
              alpha = n)) +
-  geom_treemap(fill = "#DD3333") +
+  geom_treemap(fill = "#DD3333", colour = "black") +
   geom_treemap_text(colour = "black",
                     place = "centre",
                     size = 10,

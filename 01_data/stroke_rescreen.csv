@@ -14,18 +14,18 @@
 13,stroke,An Optimization Precise Model of Stroke Data to Improve Stroke Prediction,10.3390/a16090417,no
 14,stroke,The Early Warning Signs of a Stroke: An Approach Using Machine Learning Predictions,10.4236/jcc.2024.126005 ,no
 15,stroke,"Performance of Machine Learning Algorithms for Heart Disease Prediction: Logistic Regressions Regularized by Elastic Net,  SVM, Random Forests, and Neural Networks",na,no
-16,stroke,Predictive Modelling of Stroke Occurrence among Patients using Machine Learning,na,no
+16,stroke,Predictive Modelling of Stroke Occurrence among Patients using Machine Learning,10.61453/intij.202355,no
 17,stroke,Enhancing stroke prediction models: A mixing of data augmentation and transfer learning for small-scale dataset in machine learning,10.1016/j.cmpbup.2025.100198,no
 18,stroke,Hybrid Features Binary Classification of Imbalance Stroke Patients Using Different Machine Learning Algorithms,10.46300/91011.2022.16.20,no
 19,stroke,Privacy-enhanced heart stroke detection using Federated Learning and Homomorphic Encryption,10.1016/j.smhl.2025.100594,no
 20,stroke,Detection of Stroke (Cerebrovascular Accident) Using Machine Learning Methods,10.17798/bitlisfen.1539189,no
 21,stroke,Stroke Prediction Using Machine Learning,na,no
-22,stroke,AN ANALYSIS OF BRAIN STROKE PREDICTION USING MACHINE LEARNING,na,no
+22,stroke,AN ANALYSIS OF BRAIN STROKE PREDICTION USING MACHINE LEARNING,10.61841/turcomat.v11i3.14508,no
 23,stroke,Design and Development of Modified Ensemble Learning with Weighted RBM Features for Enhanced Multi-disease Prediction Model,10.1007/s00354-022-00190-2,no
 24,stroke,Stroke Prediction Using the Trust Evaluation with Data Leakage Avoiding,10.1088/1742-6596/2560/1/012051,no
 25,stroke,A Novel Explainable Attention-Based Meta-Learning Framework for Imbalanced Brain Stroke Prediction,10.3390/s25061739,no
 26,stroke,Unlocking stroke prediction: Harnessing projection-based statistical feature extraction with ML algorithms,10.1016/j.heliyon.2024.e27411 ,no
-27,stroke,Logistic Regression for Stroke Prediction: An Evaluation of its Accuracy and Validity ,na,no
+27,stroke,Logistic Regression for Stroke Prediction: An Evaluation of its Accuracy and Validity ,10.54097/hset.v39i.6712,no
 28,stroke,Optimizing Accuracy of Stroke Prediction Using Logistic Regression,10.37802/joti.v4i2.278,no
 29,stroke,Enhanced Stroke Risk Prediction: A Fusion of Machine Learning Models for Improved Healthcare Strategies,10.1007/s42979-024-03389-w,no
 30,stroke,Navigating Heart Stroke Terrain: A Cutting-Edge Feed-Forward Neural Network Expedition,10.47738/jads.v6i3.763,no
@@ -68,7 +68,7 @@
 67,stroke,Robust classification model for identifying stroke patients utilising a machine learning-based ensemble stacking method,10.1088/2631-8695/adad3a,no
 68,stroke,Machine Learning Prediction of Brain Stroke at an Early Stage,10.24996/ijs.2023.64.12.39,no
 69,stroke,Health Seek: A Deep Learning-Based Intelligent System to Aid Medical Diagnosis,10.4236/jbise.2022.151007,no
-70,stroke,"Classification of stroke patients using data mining with AdaBoost, Decision Tree and Random Forest models",na,no
+70,stroke,"Classification of stroke patients using data mining with AdaBoost, Decision Tree and Random Forest models",10.33096/ilkom.v14i3.1328.218-228,no
 71,stroke,A new stroke prediction model combined algorithm based on artificial neural networks and logistic regression,10.1117/12.2656802,no
 72,stroke,Prediction of Stroke Disease with Demographic and Behavioural Data Using Random Forest Algorithm,10.3390/analytics2030034,no
 73,stroke,Enhancing Stroke Prediction Using LightGBM With SMOTE-ENN and Fine-Tuning: A Comprehensive Analysis,10.7759/s44389-02402268-y,no

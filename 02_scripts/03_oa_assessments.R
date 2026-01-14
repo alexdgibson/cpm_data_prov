@@ -133,7 +133,7 @@ rbind(oa_stroke, oa_diabetes) %>%
   theme_classic()+
   labs(x = "Year",
        y = "Total Clinical Prediction Model Studies")+
-  scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100))
+  scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100,110))
 
 # save the figure
 ggsave(filename = "03_figures/pubs_over_time.jpg",
@@ -146,6 +146,9 @@ rbind(oa_stroke, oa_diabetes) %>%
   distinct() %>%
   nrow()
 
+# get the last publication date
+rbind(oa_stroke, oa_diabetes) %>% 
+  distinct() %>% view()
 
 
 # Getting the publishers of all the articles to plot the number of different publishers

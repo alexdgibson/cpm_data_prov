@@ -15,9 +15,9 @@ grViz("digraph flowchart {
   3 [label = 'Full Text Screen (n = 190)']
   4 [label = 'Included Prediction Model Article (n = 124)']
   
-  m1 [label = 'No Kaggle Data (n = 186)']
-  m2 [label = 'Not a Research Article /
-  in English / PDF available (n = 277)']
+  m1 [label = 'Did Not Use Kaggle Data (n = 186)']
+  m2 [label = 'Not a Research Article / Not in English
+  / No PDF available (n = 277)']
   m3 [label = 'Not a Prediction Model Article (n = 66)']
 
   node [shape = none, width=0, height=0, label='']
@@ -29,3 +29,5 @@ grViz("digraph flowchart {
   edge [dir=none]
   1 -> p1; 2 -> p2; 3 -> p3;
 }")
+
+

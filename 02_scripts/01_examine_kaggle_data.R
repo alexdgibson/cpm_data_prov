@@ -152,7 +152,7 @@ stroke_df %>%
   scale_x_continuous(n.breaks = 8)+
   scale_y_continuous(limits = c(50,300), n.breaks = 6)+
 
-  labs(x = "Patient Identifier",
+  labs(x = "Patient ID",
        y = "Blood Glucose Level")
 
 # save as jpg

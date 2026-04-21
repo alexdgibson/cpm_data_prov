@@ -149,7 +149,7 @@ rbind(oa_stroke, oa_diabetes) %>%
 ggsave(filename = "03_figures/pubs_over_time.jpg",
        width = 6,
        height = 4,
-       dpi = 300)
+       dpi = 500)
 
 # get the total number of articles from both stroke and diabetes which had OA publication date available
 rbind(oa_stroke, oa_diabetes) %>% 
@@ -205,7 +205,7 @@ all_oa %>%
 ggsave(filename = "03_figures/treemap.jpg",
        width = 6,
        height = 4,
-       dpi = 300)
+       dpi = 500)
 
 
 # get summary stats

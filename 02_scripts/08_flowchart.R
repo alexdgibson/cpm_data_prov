@@ -17,7 +17,8 @@ grViz("digraph flowchart {
   
   m1 [label = 'Did Not Use Kaggle Data (n = 186)']
   m2 [label = 'Not a Research Article / Not in English
-  / No PDF available (n = 277)']
+  / No PDF available (n = 277)'
+  P]
   m3 [label = 'Not a Prediction Model Article (n = 66)']
 
   node [shape = none, width=0, height=0, label='']
@@ -31,3 +32,15 @@ grViz("digraph flowchart {
 }")
 
 
+df <- read_csv("01_data/kaggle_research_outputs.csv")
+
+df %>% filter(uses_data == "yes") %>% 
+  filter(type != "article") %>% 
+  group_by(type) %>%
+  summarise(n = n())
+
+
+df %>% filter(uses_data == "yes") %>% 
+  filter(pdf == "no" | pdf == "na" | english == "no" | english == "na") %>% 
+  group_by(type) %>%
+  summarise(n = n())

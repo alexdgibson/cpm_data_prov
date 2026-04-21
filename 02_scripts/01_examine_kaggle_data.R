@@ -7,6 +7,7 @@ library(tidyverse)
 library(ggplot2)
 library(cowplot)
 library(svglite)
+library(patchwork)
 
 
 # load in each of the two kaggle data sets for exploratory analysis
@@ -264,15 +265,52 @@ stroke_df[!complete.cases(stroke_df), ] %>%
 
 
 
+# plots for manuscript stroke
+
+stroke_a <- stroke_df %>% 
+  ggplot()+
+  #geom_vline(xintercept = max(stroke_df$id)/2, linewidth = 0.2, linetype = "dashed")+
+  geom_point(aes(x = id, y = avg_glucose_level))+
+  theme_classic()+
+  labs(x = "Patient ID",
+       y = "Blood Glucose Level")
+
+stroke_b <- stroke_df %>% 
+  ggplot()+
+  geom_point(aes(x = bmi, y = avg_glucose_level))+
+  theme_classic()+
+  labs(x = "BMI",
+       y = "Blood Glucose Level")
+
+stroke_c <- stroke_df %>% 
+  ggplot()+
+  geom_histogram(aes(x = avg_glucose_level), binwidth = 1, fill = "black")+
+  theme_classic()+
+  labs(x = "Blood Glucose Level",
+       y = "Count")
+
+stroke_d <- stroke_df %>% 
+  ggplot()+
+  geom_histogram(aes(x = age), binwidth = 1, fill = "black")+
+  theme_classic()+
+  labs(x = "Age",
+       y = "Count")
 
 
+(stroke_a + stroke_b) / (stroke_c + stroke_d) +
+  plot_annotation(tag_levels = list(c("A", "B", "C" , "D")))
+
+ggsave(filename = "03_figures/stroke_abcd.jpg",
+       width = 12,
+       height = 9,
+       dpi = 300)
 
 # plot the distributions for the continuous variables for diabetes
 
 # plotting the distribution of the numeric variable age for diabetes
 diabetes_age_hist <- diabetes_df %>% 
   ggplot(aes(x = age))+
-  geom_histogram(binwidth = 1, fill = "#163E64", colour = "#163E64")+
+  geom_histogram(binwidth = 1)+
   scale_x_continuous(n.breaks = 10)+
   scale_y_continuous(limits = c(0,6000), n.breaks = 6)+
   theme_classic()+
@@ -301,7 +339,7 @@ diabetes_df %>%
 diabetes_bmi_hist <- diabetes_df %>% 
   filter(bmi < 60) %>% 
   ggplot(aes(x = bmi))+
-  geom_histogram(binwidth = 1, fill = "#163E64", colour = "#163E64")+
+  geom_histogram(binwidth = 1)+
   scale_x_continuous(n.breaks = 10)+
   scale_y_continuous(limits = c(0,35000), n.breaks = 8)+
   theme_classic()+
@@ -387,21 +425,27 @@ ggsave(filename = "03_figures/diabetes_bmi_plots.jpg",
 
 
 # avg blood glucose and hba1c
-diabetes_df %>% 
+diabetes_glucose_hba1c <- diabetes_df %>% 
   ggplot()+
-  geom_point(aes(x = blood_glucose_level, y = HbA1c_level), size = 0.3)+
+  geom_point(aes(x = blood_glucose_level, y = HbA1c_level))+
   theme_classic()+
   labs(y = "HbA1c Level",
        x = "Blood Glucose Level")+
   scale_x_continuous(limits = c(75,300), n.breaks = 8)+
-  scale_y_continuous(limits = c(3,10))+
-  theme(text = element_text(size = 7))
+  scale_y_continuous(limits = c(3,10))
   
   ggsave(filename = "03_figures/diabetes_glucose_hba1c.jpg",
          width = 4,
          height = 3,
          dpi = 300)
+
+(diabetes_bgl_bmi + diabetes_hba1c_bmi) / diabetes_glucose_hba1c +
+  plot_annotation(tag_levels = list(c("A", "B", "C")))
   
+  ggsave(filename = "03_figures/diabetes_glucose_hba1c_BMI.jpg",
+         width = 12,
+         height = 9,
+         dpi = 300)
 
 # unique number of blood glucose level data
 unique(diabetes_df$blood_glucose_level)

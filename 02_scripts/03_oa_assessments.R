@@ -41,6 +41,10 @@ oa_diabetes <- oa_fetch(
 )
 
 
+
+
+
+
 # select all of the diabetes articles that have been cited once or more
 # these will be searched to check article type (i.e. review)
 diabetes_ids <- oa_diabetes %>%
@@ -56,15 +60,18 @@ diabetes_cited_info <- map_dfr(diabetes_ids,
 
 # group the article types together and check "review" for the project
 diabetes_review <- diabetes_cited_info %>% 
+  filter(id != "https://openalex.org/W4409194057") %>% 
   group_by(type) %>% 
   summarise(n = n()) %>% 
   filter(type == "review")
 
 
 # get the number of articles which had citations
-nrow(oa_diabetes) # number of diabetes articles indexed in OA
-length(diabetes_ids) # number of diabetes articles which had more than 0 citations
-sum(oa_diabetes$cited_by_count) # number of total citations all of the diabetes articles have recieved
+nrow(oa_diabetes %>% filter(id != "https://openalex.org/W4409194057")) # number of diabetes articles indexed in OA
+length(diabetes_ids)-1 # number of diabetes articles which had more than 0 citations
+oa_diabetes %>% 
+  filter(id != "https://openalex.org/W4409194057") %>% 
+  summarise(total = sum(cited_by_count)) # number of total citations all of the diabetes articles have received
 diabetes_review # number of citations which were review articles
 
 
@@ -107,6 +114,7 @@ stroke_cited_info <- map_dfr(stroke_ids,
 
 # group the article types together and check "review" for the project
 stroke_review <- stroke_cited_info %>% 
+  filter(id != "https://openalex.org/W4409194057") %>% 
   group_by(type) %>% 
   summarise(n = n()) %>% 
   filter(type == "review")
@@ -114,9 +122,11 @@ stroke_review <- stroke_cited_info %>%
 
 
 # get the number of articles which had citations
-nrow(oa_stroke) # number of stroke articles indexed in OA
-length(stroke_ids) # number of stroke articles which had more than 0 citations
-sum(oa_stroke$cited_by_count) # number of total citations all of the stroke articles have received
+nrow(oa_stroke %>% filter(id != "https://openalex.org/W4409194057")) # number of stroke articles indexed in OA
+length(stroke_ids)-1 # number of stroke articles which had more than 0 citations # remove the extra article using both datasets
+oa_stroke %>% 
+  filter(id != "https://openalex.org/W4409194057") %>% 
+  summarise(total = sum(cited_by_count)) # number of total citations all of the stroke articles have received
 stroke_review # number of citations which were review articles
 
 
@@ -155,7 +165,8 @@ rbind(oa_stroke, oa_diabetes) %>%
 
 # get the articles together to search OA
 all_articles <- rbind(diabetes_tripod, stroke_tripod) %>% 
-  filter(cpm_type != "na")
+  filter(cpm_type != "na") %>% 
+  distinct(doi)
 
 # search OA
 all_oa <- oa_fetch(entity = "works",
@@ -164,11 +175,21 @@ all_oa <- oa_fetch(entity = "works",
 
 # plot into ha treemap
 all_oa %>% 
-  distinct() %>%  # remove one of the articles that uses both datasets (was one in each stroke and diabetes, just remove one)
   group_by(host_organization_name) %>% 
   summarise(n = n()) %>%
   na.omit() %>% 
-  mutate(label_wrapped = str_wrap(host_organization_name, width = 15)) %>%   # << wrap text
+  mutate(
+    host_organization_name = case_when(
+      host_organization_name %in% c("Nature Portfolio", 
+                                    "Springer Nature", 
+                                    "Springer Science+Business Media", 
+                                    "BioMed Central") ~ "Springer Nature Group",
+      TRUE ~ host_organization_name
+    )
+  ) %>% 
+  group_by(host_organization_name) %>% 
+  summarise(n = sum(n)) %>% 
+  mutate(label_wrapped = str_wrap(host_organization_name, width = 15)) %>%
   ggplot(aes(area = n,
              label = label_wrapped,
              alpha = n)) +

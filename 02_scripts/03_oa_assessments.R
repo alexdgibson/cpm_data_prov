@@ -140,10 +140,11 @@ rbind(oa_stroke, oa_diabetes) %>%
   mutate(total = row_number()) %>%
   ggplot(aes(x = publication_date, y = total))+
   geom_line()+
-  theme_classic()+
+  theme_bw()+
+  theme(panel.grid.minor = element_blank())+
   labs(x = "Year",
        y = "Total Clinical Prediction Model Studies")+
-  scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100,110))
+  scale_y_continuous(breaks = c(0,20,40,60,80,100,120))
 
 # save the figure
 ggsave(filename = "03_figures/pubs_over_time.jpg",

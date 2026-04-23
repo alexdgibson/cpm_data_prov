@@ -167,7 +167,7 @@ dplot = ggplot(data = to_plot, aes(x=num, y=n))+
   geom_segment(aes(x = 135, y = 48, xend = 55.5, yend = 23), # arrow
                arrow = arrow(length = unit(0.2, "cm"), type = "closed"),
                col = label_colour) +
-  xlab('Glucose')+
+  xlab('Blood glucose')+
   ylab('Number of patients')+
   theme_bw()+
   theme(panel.grid.minor = element_blank())
@@ -266,7 +266,7 @@ to_plot = select(diabetes_df, blood_glucose_level, HbA1c_level) %>%
 
 ddplot = ggplot(data = to_plot, aes(x = blood_glucose_level, y = HbA1c_level)) +
   geom_point(pch = 1, alpha = 0.5, col='navy')+
-  xlab('Blood glucose level') +
+  xlab('Blood glucose') +
   ylab('HbA1c') +
   theme_bw()+
   theme(panel.grid.minor = element_blank())

@@ -149,7 +149,7 @@ to_plot = mutate(stroke_df,
   ungroup()
 # make axis ticks
 minor_breaks = seq(55,280,1) 
-breaks = seq(100,250,50)
+breaks = seq(0,250,50)
 labels = as.character(breaks)
 breaks = breaks + 0.5 # move to left
 minor_breaks = minor_breaks + 0.5 # move to left
@@ -158,7 +158,8 @@ label = data.frame(num = 130, n = 52, text = 'Truncation')
 #
 dplot = ggplot(data = to_plot, aes(x=num, y=n))+
   geom_bar(stat='identity', width=1, fill='darkred', col=NA)+
-  scale_x_continuous(expand = c(0,0), 
+  scale_x_continuous(expand = c(0,0),
+                     limits = c(0,275),
                      labels = labels,
                      minor_breaks = minor_breaks,
                      breaks = breaks)+
@@ -246,7 +247,7 @@ label = data.frame(num = 25, n = 22000, text = 'Extreme number of patients\nwith
 #
 dcplot = ggplot(data = to_plot, aes(x=num, y=n))+
   geom_bar(stat='identity', width=1, fill='navy', col=NA)+
-  scale_x_continuous(expand = c(0,0), limits=c(0,50))+ #
+  scale_x_continuous(expand = c(0,0), limits=c(0,50), labels = c(10,20,30,40,50,60))+ #
   scale_y_continuous(expand=c(0,0), limits=c(0,30000))+
   xlab('BMI')+
   ylab('Number of patients')+
